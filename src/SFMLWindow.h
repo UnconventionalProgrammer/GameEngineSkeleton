@@ -5,7 +5,7 @@
 #ifndef MYRTS_SRC_SFMLWINDOW_H_
 #define MYRTS_SRC_SFMLWINDOW_H_
 
-#include "SFML/Window.hpp"
+#include "SFML/Graphics.hpp"
 #include "Window.h"
 
 namespace rts
@@ -13,11 +13,12 @@ namespace rts
   class SFMLWindow
   {
 	  rts::Window<SFMLWindow> &m_Parent;
-	  sf::Window m_Handle;
+	  sf::RenderWindow m_Handle;
   public:
 	  explicit SFMLWindow(rts::Window<SFMLWindow> &parent, unsigned int width, unsigned int height, std::string_view title);
 
-	  bool Update();
+	  [[nodiscard]] bool Update() noexcept;
+	  [[nodiscard]] sf::RenderWindow &getHandle() noexcept { return m_Handle; }
   };
 
 } // rts

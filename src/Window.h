@@ -31,15 +31,8 @@ namespace rts
 	struct MouseLeft{};
   }
 
-  class IWindow
-  {
-  public:
-	  virtual bool Update() = 0;
-	  virtual ~IWindow() = default;
-  };
-
   template <typename WindowHandler>
-  class Window : private IWindow
+  class Window
   {
 	  std::tuple<rts::WindowEvent<WindowEvents::Closed>,
 				   rts::WindowEvent<WindowEvents::Resized>,
@@ -61,7 +54,6 @@ namespace rts
 	  template <typename ...Args>
 	  requires (!std::is_same_v<WindowHandler, Window>)
 	  explicit Window(Args&&... args) : m_Handler(*this, std::forward<Args>(args)...) {}
-	  ~Window() override = default;
 
 	  template <typename EventType>
 	  rts::WindowEvent<EventType> &getEvent() noexcept
@@ -69,7 +61,8 @@ namespace rts
 		  return std::get<rts::WindowEvent<EventType>>(m_Events);
 	  }
 
-	  bool Update() noexcept override { return m_Handler.Update(); }
+	  [[nodiscard]]bool Update() noexcept { return m_Handler.Update(); }
+	  [[nodiscard]] auto &getHandle() noexcept { return m_Handler.getHandle(); }
   };
 } // rts
 

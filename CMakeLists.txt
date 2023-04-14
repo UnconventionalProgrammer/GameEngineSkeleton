@@ -29,7 +29,7 @@ conan_cmake_install(PATH_OR_REFERENCE .
         SETTINGS ${settings})
 
 
-add_executable(${PROJECT_NAME} main.cpp src/Window.cpp src/Window.h src/SFMLWindow.cpp src/SFMLWindow.h src/WindowEvent.cpp src/WindowEvent.h)
+add_executable(${PROJECT_NAME} main.cpp src/Window.cpp src/Window.h src/SFMLWindow.cpp src/SFMLWindow.h src/WindowEvent.cpp src/WindowEvent.h src/Drawable.cpp src/Drawable.h src/Mesh.cpp src/Mesh.h src/DrawableSprite.cpp src/DrawableSprite.h src/Renderer.cpp src/Renderer.h src/SFMLRenderer.cpp src/SFMLRenderer.h)
 
 find_package(fmt)
 if(fmt_FOUND)

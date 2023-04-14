@@ -15,7 +15,7 @@ namespace rts
 	  m_Parent.getEvent<rts::WindowEvents::Closed>() += [this](const rts::WindowEvents::Closed &) { m_Handle.close(); };
   }
 
-  bool SFMLWindow::Update()
+  bool SFMLWindow::Update() noexcept
   {
 	  sf::Event event{};
 	  while (m_Handle.pollEvent(event))
