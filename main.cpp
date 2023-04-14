@@ -19,7 +19,7 @@ int main()
 	myWindow.getEvent<rts::WindowEvents::MouseButtonReleased>() += [](const rts::WindowEvents::MouseButtonReleased &mouse) { fmt::print("[Mouse] Released {0}\n", mouse.button); };
 	while(myWindow.Update())
 	{
-		/* game loop  */
+		/* game  loop  */
 	}
 
 
