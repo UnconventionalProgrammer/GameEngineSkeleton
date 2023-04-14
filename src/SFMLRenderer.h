@@ -14,7 +14,7 @@ namespace rts
 
   class SFMLRenderer
   {
-	  rts::Renderer<SFMLRenderer> &m_Parent;
+	  [[maybe_unused]] rts::Renderer<SFMLRenderer> &m_Parent;
 	  sf::RenderWindow &m_Window;
 
   public:
