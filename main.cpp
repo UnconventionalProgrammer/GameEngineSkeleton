@@ -4,6 +4,7 @@
 #include "src/SFMLWindow.h"
 #include "src/SFMLRenderer.h"
 #include "src/DrawableSprite.h"
+#include "src/DrawableGridTerrain.h"
 
 int main()
 {
@@ -23,9 +24,11 @@ int main()
 
 	rts::Renderer<rts::SFMLRenderer> myRenderer(myWindow.getHandle());
 
-	std::vector<rts::Drawable<rts::DrawableSprite>> mySprites;
-	mySprites.emplace_back(std::make_tuple(0.0f, 0.0f, 0.0f, 0.0f), std::make_tuple(10.0f, 10.0f), std::make_tuple(10.0f, 10.0f));
-
+	std::vector<std::variant<rts::Drawable<rts::DrawableSprite>, rts::Drawable<rts::DrawableGridTerrain>>> mySprites;
+	mySprites.emplace_back(rts::Drawable<rts::DrawableGridTerrain>{60, 60});
+	mySprites.emplace_back(rts::Drawable<rts::DrawableSprite>{std::make_tuple(0.0f, 0.0f, 0.0f, 0.0f), std::make_tuple(10.0f, 10.0f), std::make_tuple(10.0f, 10.0f)});
+	mySprites.emplace_back(rts::Drawable<rts::DrawableSprite>{std::make_tuple(0.0f, 0.0f, 0.0f, 0.0f), std::make_tuple(30.0f, 15.0f), std::make_tuple(100.0f, 10.0f)});
+	mySprites.emplace_back(rts::Drawable<rts::DrawableSprite>{std::make_tuple(0.0f, 0.0f, 0.0f, 0.0f), std::make_tuple(50.0f, 40.0f), std::make_tuple(200.0f, 200.0f)});
 
 	myRenderer.GenerateMesh(mySprites.begin(), mySprites.end());
 

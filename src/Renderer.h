@@ -7,6 +7,7 @@
 
 #include <utility>
 #include <iterator>
+#include <variant>
 #include "Mesh.h"
 
 namespace rts
@@ -28,7 +29,7 @@ namespace rts
 		  m_ProceduralMesh.clear();
 		  while(begin != end)
 		  {
-			  (*begin++).draw(m_ProceduralMesh.outputBegin());
+			  std::visit([this](auto &arg) { arg.draw(m_ProceduralMesh.outputBegin());}, (*begin++));
 		  }
 	  }
 
