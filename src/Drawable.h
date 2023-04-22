@@ -19,10 +19,16 @@ namespace rts
 	  requires (!std::is_same_v<DrawableObject, Drawable>)
 	  explicit Drawable(Args&&... args) : m_Object(*this, std::forward<Args>(args)...) {}
 
+
 	  template <std::output_iterator<rts::Vertex> IteratorType>
 	  void draw(IteratorType outputBegin)
 	  {
 		  m_Object.draw(outputBegin);
+	  }
+
+	  void setPosition(const std::tuple<float, float> &newPosition)
+	  {
+		  m_Object.setPosition(newPosition);
 	  }
   };
 

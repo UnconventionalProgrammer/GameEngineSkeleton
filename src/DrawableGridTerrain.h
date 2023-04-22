@@ -41,6 +41,8 @@ namespace rts
 			  }
 		  }
 	  }
+
+	  void setPosition(const std::tuple<float, float> &newPosition) {}
   };
 
 } // rts

@@ -25,6 +25,7 @@ namespace rts
 	  explicit DrawableSprite(Drawable<DrawableSprite> &parent, const std::tuple<float, float, float, float> &uv, const std::tuple<float, float> &size, const std::tuple<float, float> &position)
 	  															: m_Parent(parent), m_UVCoords(uv), m_Size(size), m_Position(position) {}
 
+
 	  template <std::output_iterator<rts::Vertex> IteratorType>
 	  void draw(IteratorType outputBegin) const noexcept
 	  {
@@ -36,6 +37,11 @@ namespace rts
 		  {
 			  *(outputBegin++) = std::make_tuple(posX + (width * boxX), posY + (height * boxY), uvX + (uvWidth * boxX), uvY + (uvHeight * boxY));
 		  }
+	  }
+
+	  void setPosition(const std::tuple<float, float> &newPosition) noexcept
+	  {
+		  m_Position = newPosition;
 	  }
   };
 

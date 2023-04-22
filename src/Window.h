@@ -8,7 +8,7 @@
 #include <utility>
 #include <tuple>
 #include <cstdint>
-#include "WindowEvent.h"
+#include "Event.h"
 
 
 namespace rts
@@ -34,20 +34,20 @@ namespace rts
   template <typename WindowHandler>
   class Window
   {
-	  std::tuple<rts::WindowEvent<WindowEvents::Closed>,
-				   rts::WindowEvent<WindowEvents::Resized>,
-				   rts::WindowEvent<WindowEvents::LostFocus>,
-				   rts::WindowEvent<WindowEvents::GainedFocus>,
-				   rts::WindowEvent<WindowEvents::TextEntered>,
-				   rts::WindowEvent<WindowEvents::KeyPressed>,
-				   rts::WindowEvent<WindowEvents::KeyReleased>,
-				   rts::WindowEvent<WindowEvents::MouseWheelMoved>,
-				   rts::WindowEvent<WindowEvents::MouseWheelScrolled>,
-				   rts::WindowEvent<WindowEvents::MouseButtonPressed>,
-				   rts::WindowEvent<WindowEvents::MouseButtonReleased>,
-				   rts::WindowEvent<WindowEvents::MouseMoved>,
-				   rts::WindowEvent<WindowEvents::MouseEntered>,
-				   rts::WindowEvent<WindowEvents::MouseLeft>       > m_Events;
+	  std::tuple<rts::Event<WindowEvents::Closed>,
+				   rts::Event<WindowEvents::Resized>,
+				   rts::Event<WindowEvents::LostFocus>,
+				   rts::Event<WindowEvents::GainedFocus>,
+				   rts::Event<WindowEvents::TextEntered>,
+				   rts::Event<WindowEvents::KeyPressed>,
+				   rts::Event<WindowEvents::KeyReleased>,
+				   rts::Event<WindowEvents::MouseWheelMoved>,
+				   rts::Event<WindowEvents::MouseWheelScrolled>,
+				   rts::Event<WindowEvents::MouseButtonPressed>,
+				   rts::Event<WindowEvents::MouseButtonReleased>,
+				   rts::Event<WindowEvents::MouseMoved>,
+				   rts::Event<WindowEvents::MouseEntered>,
+				   rts::Event<WindowEvents::MouseLeft>       > m_Events;
 
 	  WindowHandler m_Handler;
   public:
@@ -56,9 +56,9 @@ namespace rts
 	  explicit Window(Args&&... args) : m_Handler(*this, std::forward<Args>(args)...) {}
 
 	  template <typename EventType>
-	  rts::WindowEvent<EventType> &getEvent() noexcept
+	  rts::Event<EventType> &getEvent() noexcept
 	  {
-		  return std::get<rts::WindowEvent<EventType>>(m_Events);
+		  return std::get<rts::Event<EventType>>(m_Events);
 	  }
 
 	  [[nodiscard]]bool Update() noexcept { return m_Handler.Update(); }
