@@ -8,10 +8,11 @@
 #include <vector>
 #include <tuple>
 #include <concepts>
+#include <cstdint>
 
 namespace rts
 {
-  using Vertex = std::tuple<float, float, float, float>;
+  using Vertex = std::tuple<float, float, float, float, std::tuple<uint8_t, uint8_t, uint8_t>>;
 
   class Mesh
   {

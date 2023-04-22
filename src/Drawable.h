@@ -30,7 +30,22 @@ namespace rts
 	  {
 		  m_Object.setPosition(newPosition);
 	  }
+
+	  [[nodiscard]] const std::tuple<float, float> &getPosition()
+	  {
+		  return m_Object.getPosition();
+	  }
   };
+
+  namespace Colour
+  {
+	using ColourType = std::tuple<uint8_t, uint8_t, uint8_t>;
+	constexpr static ColourType Red{255, 0, 0};
+	constexpr static ColourType Green{0, 255, 0};
+	constexpr static ColourType Blue{0, 0, 255};
+	constexpr static ColourType White{255, 255, 255};
+	constexpr static ColourType Black{255, 255, 255};
+  }
 
 
 

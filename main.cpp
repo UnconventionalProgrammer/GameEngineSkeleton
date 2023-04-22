@@ -1,5 +1,9 @@
+#include <thread>
+
 #include <fmt/core.h>
 #include "sol/sol.hpp"
+
+#include "Example/Pong/Pong.h"
 
 #include "src/SFMLWindow.h"
 #include "src/SFMLRenderer.h"
@@ -51,14 +55,10 @@ int main()
 	rts::Renderer<rts::SFMLRenderer> myRenderer(myWindow.getHandle());
 
 
-
-
-
-	while(myWindow.Update())
+	PongGame myGame;
+	while(myGame.run())
 	{
-		myRenderer.GenerateMesh(mySprites.begin(), mySprites.end());
-		myRenderer.draw();
-		/* game  loop  */
+		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 	}
 
 

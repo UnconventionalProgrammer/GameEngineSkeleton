@@ -35,7 +35,7 @@ namespace rts
 
 		  for(auto &[boxX, boxY] : m_BoxCoords)
 		  {
-			  *(outputBegin++) = std::make_tuple(posX + (width * boxX), posY + (height * boxY), uvX + (uvWidth * boxX), uvY + (uvHeight * boxY));
+			  *(outputBegin++) = std::make_tuple(posX + (width * boxX), posY + (height * boxY), uvX + (uvWidth * boxX), uvY + (uvHeight * boxY), std::tuple<uint8_t, uint8_t, uint8_t>{255, 255, 255});
 		  }
 	  }
 

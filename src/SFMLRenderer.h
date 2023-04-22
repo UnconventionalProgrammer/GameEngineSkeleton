@@ -28,8 +28,9 @@ namespace rts
 		  sf::VertexArray va(sf::PrimitiveType::Triangles);
 		  while(begin != end)
 		  {
-			  const auto [x, y, uvX, uvY] = *(begin++);
-			  va.append(sf::Vertex{{x, y}, sf::Color::Red, {uvX, uvY}});
+			  const auto [x, y, uvX, uvY, rgb] = *(begin++);
+			  const auto [r, g, b] = rgb;
+			  va.append(sf::Vertex{{x, y}, sf::Color(r, g, b), {uvX, uvY}});
 		  }
 
 		  m_Window.draw(va);
