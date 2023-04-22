@@ -16,11 +16,13 @@ namespace rts
 	{
 		std::tuple< rts::Event<EntityEvents::PositionChanged> > m_Events;
 
-		std::tuple<Args...> m_Components{};
+		std::tuple<Args...> m_Components;
 		rts::Entity<GameObject<Args...>> &m_Parent;
 
 	public:
+		GameObject() = delete;
 		explicit GameObject(rts::Entity<GameObject<Args...>> &parent) : m_Parent(parent) {}
+		explicit GameObject(rts::Entity<GameObject<Args...>> &parent, std::tuple<Args...> &&components) : m_Parent(parent), m_Components(std::move(components)) {}
 
 		template <typename EventType>
 		rts::Event<EventType> &getEvent() noexcept
@@ -39,6 +41,27 @@ namespace rts
 			return m_Parent;
 		}
 	};
+
+	  template <std::default_initializable ComponentType>
+	  class Component
+	  {
+		  using OnWriteType = std::function<void(const ComponentType &, const ComponentType &)>;
+
+		  ComponentType m_Component;
+		  std::function<void(const ComponentType &, const ComponentType &)> m_onWrite{[](const auto &, const auto *) { /* do nothing */}};
+
+	  public:
+		  Component() = delete;
+		  explicit Component(OnWriteType &&onWrite) : m_onWrite(std::move(onWrite)) {}
+		  explicit Component(const ComponentType &component, OnWriteType &&onWrite) : m_Component(component), m_onWrite(std::move(onWrite)) {}
+		  explicit Component(const ComponentType &&component, OnWriteType &&onWrite) : m_Component(std::move(component)), m_onWrite(std::move(onWrite)) {}
+
+		  void write(const ComponentType &component) { m_onWrite(m_Component, component); m_Component = component; }
+
+		  const ComponentType &read() { return m_Component; }
+
+		  void operator <<(const ComponentType &component) { write(component); }
+	  };
 
   namespace GameObjectComponents
   {

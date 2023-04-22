@@ -27,15 +27,16 @@ int main()
 		mySprites.emplace_back(rts::Drawable<rts::DrawableSprite>{std::make_tuple(0.0f, 0.0f, 0.0f, 0.0f), std::make_tuple(30.0f, 15.0f), std::make_tuple(100.0f, 10.0f)});
 	mySprites.emplace_back(rts::Drawable<rts::DrawableSprite>{std::make_tuple(0.0f, 0.0f, 0.0f, 0.0f), std::make_tuple(50.0f, 40.0f), std::make_tuple(200.0f, 200.0f)});
 
-	rts::Entity<rts::GameObject<rts::GameObjectComponents::Position>> myObject{};
-	myObject.getGameObject().getEvent<rts::EntityEvents::PositionChanged>() += [&mouseSprite](const rts::EntityEvents::PositionChanged &position)
-	    {
-			std::visit([&position](auto &sprite) { sprite.setPosition(position.newPosition); }, *mouseSprite);
-		};
+	rts::Entity<rts::GameObject<rts::Component<rts::GameObjectComponents::Position>>> myObject
+	(std::make_tuple(rts::Component<rts::GameObjectComponents::Position>(
+			[&mouseSprite] (const rts::GameObjectComponents::Position &, const rts::GameObjectComponents::Position &newPosition)
+			{
+			  std::visit([&newPosition](auto &sprite) { sprite.setPosition(newPosition.m_Position); }, *mouseSprite);
+			})));
 
 	myWindow.getEvent<rts::WindowEvents::MouseMoved>() += [&myObject](const rts::WindowEvents::MouseMoved &mouse)
 	    {
-			myObject.getComponent<rts::GameObjectComponents::Position>().set(myObject, std::make_tuple<float, float>(static_cast<float>(mouse.x), static_cast<float>(mouse.y)));
+			myObject.getComponent<rts::Component<rts::GameObjectComponents::Position>>().write({std::make_tuple<float, float>(static_cast<float>(mouse.x), static_cast<float>(mouse.y))});
 		};
 
 
