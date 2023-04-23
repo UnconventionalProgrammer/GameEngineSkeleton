@@ -19,6 +19,12 @@ namespace rts
 		std::tuple<float, float> newPosition;
 	};
 
+	struct VelocityChanged
+	{
+		std::tuple<float, float> oldVelocity;
+		std::tuple<float, float> newVelocity;
+	};
+
   }
 
   template <typename GameObjectHandler>

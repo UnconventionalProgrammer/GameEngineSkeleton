@@ -17,6 +17,12 @@ PongGame::PongGame()
 
 bool PongGame::run()
 {
+	auto timeNow = std::chrono::system_clock::now();
+	std::chrono::duration<float> deltaTime = timeNow - m_DeltaTime;
+	m_DeltaTime = timeNow;
+
+	m_PositionVelocitySystem.Update(m_Ball, deltaTime.count());
+
 	m_Renderer.GenerateMesh(m_Sprites.begin(), m_Sprites.end());
 	m_Renderer.draw();
 
