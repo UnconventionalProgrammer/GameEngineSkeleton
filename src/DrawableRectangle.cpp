@@ -4,6 +4,3 @@
 
 #include "DrawableRectangle.h"
 
-namespace rts
-{
-} // rts

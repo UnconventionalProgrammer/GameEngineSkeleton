@@ -3,7 +3,3 @@
 //
 
 #include "DrawableSprite.h"
-
-namespace rts
-{
-} // rts

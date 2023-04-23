@@ -15,7 +15,7 @@ namespace rts
 	  static constexpr std::array<std::tuple<float, float>, 6> m_BoxCoords{std::make_tuple(1.0f, 0.0f), std::make_tuple(0.0f, 0.0f), std::make_tuple(1.0f, 1.0f),
 																		   std::make_tuple(1.0f, 1.0f), std::make_tuple(0.0f, 0.0f), std::make_tuple(0.0f, 1.0f)};
 
-	  Drawable<DrawableSprite> &m_Parent;
+	  [[maybe_unused]] Drawable<DrawableSprite> &m_Parent;
 
 	  std::tuple<float, float, float, float> m_UVCoords{};
 	  std::tuple<float, float> m_Size{};

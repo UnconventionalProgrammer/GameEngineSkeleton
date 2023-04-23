@@ -4,6 +4,3 @@
 
 #include "Renderer.h"
 
-namespace rts
-{
-} // rts

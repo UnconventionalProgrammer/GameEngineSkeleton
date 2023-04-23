@@ -3,7 +3,3 @@
 //
 
 #include "SFMLRenderer.h"
-
-namespace rts
-{
-} // rts

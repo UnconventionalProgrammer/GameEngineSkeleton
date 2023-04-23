@@ -3,7 +3,3 @@
 //
 
 #include "GameObject.h"
-
-namespace rts
-{
-} // rts

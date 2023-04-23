@@ -3,7 +3,3 @@
 //
 
 #include "Mesh.h"
-
-namespace rts
-{
-} // rts

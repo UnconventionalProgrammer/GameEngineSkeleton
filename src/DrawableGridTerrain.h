@@ -15,7 +15,7 @@ namespace rts
 	  static constexpr std::array<std::tuple<float, float>, 6> m_BoxCoords{std::make_tuple(1.0f, 0.0f), std::make_tuple(0.0f, 0.0f), std::make_tuple(1.0f, 1.0f),
 																		   std::make_tuple(1.0f, 1.0f), std::make_tuple(0.0f, 0.0f), std::make_tuple(0.0f, 1.0f)};
 
-	  Drawable<DrawableGridTerrain> &m_Parent;
+	  [[maybe_unused]] Drawable<DrawableGridTerrain> &m_Parent;
 	  size_t m_Width;
 	  size_t m_Height;
 
@@ -42,7 +42,10 @@ namespace rts
 		  }
 	  }
 
-	  void setPosition(const std::tuple<float, float> &newPosition) {}
+	  void setPosition(const std::tuple<float, float> &) const
+	  {
+		  /*do nothing*/
+	  }
   };
 
 } // rts

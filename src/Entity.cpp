@@ -3,7 +3,3 @@
 //
 
 #include "Entity.h"
-
-namespace rts
-{
-} // rts

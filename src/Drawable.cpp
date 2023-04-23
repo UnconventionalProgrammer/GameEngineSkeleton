@@ -4,6 +4,3 @@
 
 #include "Drawable.h"
 
-namespace rts
-{
-} // rts

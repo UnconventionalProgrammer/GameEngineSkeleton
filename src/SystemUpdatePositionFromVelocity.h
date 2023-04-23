@@ -13,7 +13,7 @@ namespace rts
 
   class SystemUpdatePositionFromVelocity
   {
-	  System<SystemUpdatePositionFromVelocity> &m_Parent;
+	  [[maybe_unused]] System<SystemUpdatePositionFromVelocity> &m_Parent;
 
   public:
 	  explicit SystemUpdatePositionFromVelocity(System<SystemUpdatePositionFromVelocity> &parent);

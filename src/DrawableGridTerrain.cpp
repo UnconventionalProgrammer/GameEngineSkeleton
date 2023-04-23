@@ -3,7 +3,3 @@
 //
 
 #include "DrawableGridTerrain.h"
-
-namespace rts
-{
-} // rts

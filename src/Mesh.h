@@ -35,12 +35,12 @@ namespace rts
 		  return std::back_inserter(m_Verticies);
 	  }
 
-	  [[nodiscard]] const auto begin() noexcept
+	  [[nodiscard]] auto begin() const noexcept
 	  {
 		  return m_Verticies.cbegin();
 	  }
 
-	  [[nodiscard]] const auto end() noexcept
+	  [[nodiscard]] auto end() const noexcept
 	  {
 		  return m_Verticies.cend();
 	  }

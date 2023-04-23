@@ -3,7 +3,3 @@
 //
 
 #include "System.h"
-
-namespace rts
-{
-} // rts
