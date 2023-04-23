@@ -14,10 +14,11 @@ namespace rts
   	template <typename ...Args>
 	class GameObject
 	{
-		std::tuple< rts::Event<EntityEvents::PositionChanged> > m_Events;
-
-		std::tuple<Args...> m_Components;
 		rts::Entity<GameObject<Args...>> &m_Parent;
+
+		std::tuple< rts::Event<EntityEvents::PositionChanged> > m_Events;
+		std::tuple<Args...> m_Components;
+
 
 	public:
 		GameObject() = delete;
