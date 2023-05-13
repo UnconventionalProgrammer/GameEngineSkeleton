@@ -30,7 +30,7 @@ conan_cmake_install(PATH_OR_REFERENCE .
 
 
 
-add_executable(${PROJECT_NAME} main.cpp src/Window.cpp src/Window.h src/SFMLWindow.cpp src/SFMLWindow.h src/Event.cpp src/Event.h src/Drawable.cpp src/Drawable.h src/Mesh.cpp src/Mesh.h src/DrawableSprite.cpp src/DrawableSprite.h src/Renderer.cpp src/Renderer.h src/SFMLRenderer.cpp src/SFMLRenderer.h src/DrawableGridTerrain.cpp src/DrawableGridTerrain.h src/GameObject.cpp src/GameObject.h src/Entity.cpp src/Entity.h src/System.cpp src/System.h Example/Pong/Pong.cpp src/DrawableRectangle.cpp src/DrawableRectangle.h src/SystemUpdatePositionFromVelocity.cpp src/SystemUpdatePositionFromVelocity.h)
+add_executable(${PROJECT_NAME} main.cpp src/Window/Window.cpp src/Window/Window.h src/Window/SFMLWindow.cpp src/Window/SFMLWindow.h src/Event.cpp src/Event.h src/Drawable/Drawable.cpp src/Drawable/Drawable.h src/Mesh.cpp src/Mesh.h src/Drawable/DrawableSprite.cpp src/Drawable/DrawableSprite.h src/Renderer/Renderer.cpp src/Renderer/Renderer.h src/Renderer/SFMLRenderer.cpp src/Renderer/SFMLRenderer.h src/Drawable/DrawableGridTerrain.cpp src/Drawable/DrawableGridTerrain.h src/GameObject.cpp src/GameObject.h src/ECS/Entity.cpp src/ECS/Entity.h src/ECS/System.cpp src/ECS/System.h Example/Pong/Pong.cpp src/Drawable/DrawableRectangle.cpp src/Drawable/DrawableRectangle.h src/ECS/SystemUpdatePositionFromVelocity.cpp src/ECS/SystemUpdatePositionFromVelocity.h)
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -Wno-attributes)
 
 find_package(fmt)

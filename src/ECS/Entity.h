@@ -6,7 +6,7 @@
 #define GAMEENGINESKELETON_SRC_ENTITY_H_
 
 #include <tuple>
-#include "Event.h"
+#include "../Event.h"
 
 namespace rts
 {

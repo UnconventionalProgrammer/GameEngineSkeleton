@@ -8,7 +8,7 @@
 #include <utility>
 #include <iterator>
 #include <variant>
-#include "Mesh.h"
+#include "../Mesh.h"
 
 namespace rts
 {

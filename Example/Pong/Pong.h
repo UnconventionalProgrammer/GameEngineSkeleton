@@ -3,11 +3,11 @@
 
 #include <chrono>
 
-#include "../../src/SFMLWindow.h"
-#include "../../src/SFMLRenderer.h"
+#include "../../src/Window/SFMLWindow.h"
+#include "../../src/Renderer/SFMLRenderer.h"
 #include "../../src/GameObject.h"
-#include "../../src/DrawableRectangle.h"
-#include "../../src/SystemUpdatePositionFromVelocity.h"
+#include "../../src/Drawable/DrawableRectangle.h"
+#include "../../src/ECS/SystemUpdatePositionFromVelocity.h"
 
 class PongGame
 {

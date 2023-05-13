@@ -5,11 +5,11 @@
 
 #include "Example/Pong/Pong.h"
 
-#include "src/SFMLWindow.h"
-#include "src/SFMLRenderer.h"
-#include "src/DrawableSprite.h"
-#include "src/DrawableGridTerrain.h"
-#include "src/Entity.h"
+#include "src/Window/SFMLWindow.h"
+#include "src/Renderer/SFMLRenderer.h"
+#include "src/Drawable/DrawableSprite.h"
+#include "src/Drawable/DrawableGridTerrain.h"
+#include "src/ECS/Entity.h"
 #include "src/GameObject.h"
 
 int main()

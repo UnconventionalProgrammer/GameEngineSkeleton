@@ -6,7 +6,7 @@
 #define GAMEENGINESKELETON_SRC_DRAWABLE_H_
 
 #include <iterator>
-#include "Mesh.h"
+#include "../Mesh.h"
 
 namespace rts
 {

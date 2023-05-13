@@ -6,7 +6,7 @@
 #define GAMEENGINESKELETON_SRC_SYSTEMUPDATEPOSITIONFROMVELOCITY_H_
 
 #include "System.h"
-#include "GameObject.h"
+#include "../GameObject.h"
 
 namespace rts
 {

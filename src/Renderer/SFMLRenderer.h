@@ -7,7 +7,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "Renderer.h"
-#include "Mesh.h"
+#include "../Mesh.h"
 
 namespace rts
 {

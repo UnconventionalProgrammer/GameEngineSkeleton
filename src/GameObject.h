@@ -6,7 +6,7 @@
 #define GAMEENGINESKELETON_SRC_GAMEOBJECT_H_
 
 #include <tuple>
-#include "Entity.h"
+#include "ECS/Entity.h"
 
 namespace rts
 {
