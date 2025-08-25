@@ -22,7 +22,7 @@ namespace rts
 	struct TextEntered{ uint32_t character{0}; };
 	struct KeyPressed{bool shift{false}; bool control{false}; bool alt{false}; bool system{false}; uint8_t key{0}; };
 	struct KeyReleased{bool shift{false}; bool control{false}; bool alt{false}; bool system{false}; uint8_t key{0}; };
-	struct MouseWheelMoved{int amount{0}; };
+	struct MouseWheelMoved{float amount{0}; };
 	struct MouseWheelScrolled{int amount{0}; };
 	struct MouseButtonPressed{uint8_t button{0}; };
 	struct MouseButtonReleased{uint8_t button{0}; };

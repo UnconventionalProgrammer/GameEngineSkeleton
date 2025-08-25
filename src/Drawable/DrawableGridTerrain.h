@@ -5,6 +5,8 @@
 #ifndef GAMEENGINESKELETON_SRC_DRAWABLEGRIDTERRAIN_H_
 #define GAMEENGINESKELETON_SRC_DRAWABLEGRIDTERRAIN_H_
 
+#include <array>
+#include <tuple>
 #include "Drawable.h"
 
 namespace rts

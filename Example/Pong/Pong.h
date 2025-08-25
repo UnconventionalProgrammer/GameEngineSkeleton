@@ -41,7 +41,7 @@ class PongGame
 			{
 			  std::visit([&newPosition](auto &sprite) { sprite.setPosition(newPosition.m_Position); }, this->m_Sprites[0]);
 			}),
-						 rts::Component<rts::GameObjectComponents::Velocity>(rts::GameObjectComponents::Velocity{std::make_tuple(10.0f, 3.0f)})))
+						 rts::Component<rts::GameObjectComponents::Velocity>(rts::GameObjectComponents::Velocity{std::make_tuple(300.0f, 100.0f)})))
 	};
 
 	rts::Renderer<rts::SFMLRenderer> m_Renderer{m_Window.getHandle()};
